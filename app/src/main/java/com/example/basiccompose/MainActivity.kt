@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.basiccompose.screens.ComposeArticle
+import com.example.basiccompose.screens.ComposeQuadrant
 import com.example.basiccompose.screens.TaskManager
 import com.example.basiccompose.ui.theme.BasicComposeTheme
 
@@ -25,7 +26,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //ComposeArticle()
-                    TaskManager()
+                    //TaskManager()
+                    ComposeQuadrant()
                 }
             }
         }
