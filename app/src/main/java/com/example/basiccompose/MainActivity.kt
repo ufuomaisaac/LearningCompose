@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.basiccompose.screens.ComposeArticle
 import com.example.basiccompose.screens.ComposeQuadrant
 import com.example.basiccompose.screens.DiceRollerApp
+import com.example.basiccompose.screens.LemonButtonAndText
 import com.example.basiccompose.screens.TaskManager
 import com.example.basiccompose.ui.theme.BasicComposeTheme
 
@@ -29,7 +30,9 @@ class MainActivity : ComponentActivity() {
                     //ComposeArticle()
                     //TaskManager()
                     //ComposeQuadrant()
-                    DiceRollerApp()
+                    //DiceRollerApp()
+                    //TaskManager()
+                    LemonButtonAndText()
                 }
             }
         }

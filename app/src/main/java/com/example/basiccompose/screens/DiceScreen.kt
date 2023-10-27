@@ -34,7 +34,7 @@ fun DiceWithImageandButton(modifier : Modifier = Modifier){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
-        Image(painter = painterResource(imageResourceId), contentDescription = "1" )
+        Image(painter = painterResource(imageResourceId), contentDescription = result.toString() )
         Button(onClick = { result = (Math.random() * 6).toInt() + 1
             Log.d("AAAA", result.toString())
         when(result) {
