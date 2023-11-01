@@ -43,7 +43,6 @@ fun ComposeArticle(modifier: Modifier = Modifier){
             textAlign = TextAlign.Justify
         )
     }
-
 }
 
 @Preview(showBackground = true)
