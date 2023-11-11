@@ -29,19 +29,26 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            BasicComposeTheme {
-                // A surface container using the 'background' color from the theme
+            BasicComposeTheme() {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background) {
+                    // A surface container using the 'background' color from the theme
 
                     //ComposeArticle()
                     //TaskManager()
                     //ComposeQuadrant()
-                     //DiceRollerApp()
+                    //DiceRollerApp()
                     //TaskManager()
                     //LemonButtonAndText()
                     //TipTimeLayout()
                     ArtWall()
+<<<<<<< HEAD
 
 
+=======
+                }
+>>>>>>> c5fd9b0481ff8addb788122d8f88ef037fbfaebe
             }
         }
     }
