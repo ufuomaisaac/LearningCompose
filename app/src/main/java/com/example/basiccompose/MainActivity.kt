@@ -41,23 +41,20 @@ class MainActivity : ComponentActivity() {
                     //TipTimeLayout()
                     ArtWall()
 
+
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
+
+
+/*
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     BasicComposeTheme {
-        Greeting("Android")
+
     }
-}
+}*/

@@ -2,6 +2,7 @@
 package com.example.basiccompose.screens.ArtSpace
 
 import android.graphics.drawable.shapes.Shape
+import android.util.Log
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -67,19 +68,20 @@ fun ArtWall(){
 
 
     var currentIndex: Int by remember { mutableStateOf(0) }
-    var imageId: Int by remember{ mutableStateOf(list[currentIndex].imageId) }
+    /*var imageId: Int by remember{ mutableStateOf(list[currentIndex].imageId) }
     var artworkTitle: String by remember { mutableStateOf(list[currentIndex].artistTitle) }
     var artworkArtist: String by remember { mutableStateOf(list[currentIndex].artworkArtist) }
-    var artworkYear: String by remember { mutableStateOf(list[currentIndex].artworkYear) }
+    var artworkYear: String by remember { mutableStateOf(list[currentIndex].artworkYear) }*/
 
     Column(modifier = Modifier
         .statusBarsPadding()
         .padding(horizontal = 24.dp, vertical = 8.dp)
-        .safeDrawingPadding(),
+        .safeDrawingPadding()
+        .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Image(painter = painterResource(imageId),
+        Image(painter = painterResource(list[currentIndex].imageId),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier.border(
@@ -90,23 +92,41 @@ fun ArtWall(){
         Spacer(modifier = Modifier.height(64.dp))
         ArtDetails(currentIndex = currentIndex, list = list)
         Spacer(modifier =Modifier.height(16.dp))
-       DisplayController(previous = "Previous", next = "Next", currentIndex = currentIndex, updateCurrentindex = {currentIndex++})
+       DisplayController(previous = "Previous",
+           next = "Next", currentIndex = currentIndex,
+            onNextButtonClicked =  {
+               when(currentIndex) {
+                   0 -> currentIndex = 1
+                   1 -> currentIndex = 2
+                   2 -> currentIndex = 3
+                   else -> if(currentIndex >= 3) {
+                       currentIndex = 0
+                   }
+               }
+            },
+           onPreviousButtonClicked = {
+               if (currentIndex > 0) {
+                   currentIndex--
+               } else if (currentIndex == 0) {
+                   currentIndex = list.size - 1
+               }
+           }
+           )
     }
 }
 @Composable
 fun ArtDetails(modifier : Modifier = Modifier, currentIndex: Int, list: List<ArtDescription>){
     Column(
         modifier = Modifier
-            .wrapContentWidth()
+            .fillMaxSize()
             .background(PurpleGrey80, shape = RectangleShape)
-            .padding(16.dp)
-            .verticalScroll(rememberScrollState()),
+            .padding(16.dp),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = list[currentIndex].artistTitle,
             fontSize = 25.sp,
-      //      fontWeight = FontWeight.Bold
+            //      fontWeight = FontWeight.Bold
         )
 
         Text(
@@ -130,14 +150,13 @@ fun DisplayController(
     previous: String,
     next: String,
     currentIndex: Int,
-    updateCurrentindex: () -> Unit
+    onNextButtonClicked: () -> Unit,
+    onPreviousButtonClicked: () -> Unit
 ) {
 
     Row(modifier = modifier) {
         Button(modifier = Modifier.width(150.dp),
-            onClick = {
-                updateCurrentindex
-            }
+            onClick = onPreviousButtonClicked
             ) {
             Text(
                 text = previous,
@@ -150,9 +169,7 @@ fun DisplayController(
 
         Button(modifier = Modifier.width(150.dp),
             // colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
-            onClick = {
-
-            }) {
+            onClick = onNextButtonClicked) {
             Text(
                 text = next,
                 fontSize = 18.sp
