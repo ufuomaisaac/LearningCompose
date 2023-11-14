@@ -32,7 +32,8 @@ class MainActivity : ComponentActivity() {
             BasicComposeTheme() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background) {
+                    color = MaterialTheme.colorScheme.background
+                ) {
                     // A surface container using the 'background' color from the theme
 
                     //ComposeArticle()
@@ -43,12 +44,7 @@ class MainActivity : ComponentActivity() {
                     //LemonButtonAndText()
                     //TipTimeLayout()
                     ArtWall()
-<<<<<<< HEAD
-
-
-=======
                 }
->>>>>>> c5fd9b0481ff8addb788122d8f88ef037fbfaebe
             }
         }
     }

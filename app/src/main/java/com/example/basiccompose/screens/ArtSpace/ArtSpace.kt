@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -50,6 +51,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.basiccompose.R
+import com.example.basiccompose.screens.ArtSpace.List.Companion.list
 import com.example.basiccompose.ui.theme.BasicComposeTheme
 import com.example.basiccompose.ui.theme.Grey
 import com.example.basiccompose.ui.theme.PurpleGrey80
@@ -59,19 +61,7 @@ import kotlin.collections.List
 @Composable
 fun ArtWall(){
 
-    var list = listOf<ArtDescription>(
-        ArtDescription(imageId = R.drawable.dragon, artistTitle = "Still Life of Blue Rose and Other Flowers", artworkArtist = "John Deo", artworkYear = "2001"),
-        ArtDescription(imageId = R.drawable.love, artistTitle = "Dragon King in the outer kingdoms", artworkArtist = "John Deo2", artworkYear = "2002"),
-        ArtDescription(imageId = R.drawable.message_in_bottle, artistTitle = "Queen's downsided in the Whole Town ", artworkArtist = "John Deo3", artworkYear = "2003"),
-        ArtDescription(imageId = R.drawable.light_bulb, artistTitle = "Dragon King4", artworkArtist = "John Deo4", artworkYear = "2004")
-    )
-
-
     var currentIndex: Int by remember { mutableStateOf(0) }
-    /*var imageId: Int by remember{ mutableStateOf(list[currentIndex].imageId) }
-    var artworkTitle: String by remember { mutableStateOf(list[currentIndex].artistTitle) }
-    var artworkArtist: String by remember { mutableStateOf(list[currentIndex].artworkArtist) }
-    var artworkYear: String by remember { mutableStateOf(list[currentIndex].artworkYear) }*/
 
     Column(modifier = Modifier
         .statusBarsPadding()
@@ -84,13 +74,18 @@ fun ArtWall(){
         Image(painter = painterResource(list[currentIndex].imageId),
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.border(
-                BorderStroke(30.dp, Color.White),
-                RectangleShape
-            ).size(300.dp)
+            modifier = Modifier
+                .border(
+                    BorderStroke(30.dp, Color.White),
+                    RectangleShape
+                )
+                .height(450.dp)
+                .fillMaxWidth()
         )
-        Spacer(modifier = Modifier.height(64.dp))
-        ArtDetails(currentIndex = currentIndex, list = list)
+        Spacer(modifier = Modifier.height(16.dp))
+        ArtDetails(modifier = Modifier.height(100.dp),
+            currentIndex = currentIndex,
+            list = list)
         Spacer(modifier =Modifier.height(16.dp))
        DisplayController(previous = "Previous",
            next = "Next", currentIndex = currentIndex,
@@ -115,12 +110,14 @@ fun ArtWall(){
     }
 }
 @Composable
-fun ArtDetails(modifier : Modifier = Modifier, currentIndex: Int, list: List<ArtDescription>){
+fun ArtDetails(modifier : Modifier = Modifier,
+               currentIndex: Int,
+               list: List<ArtDescription>){
     Column(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = modifier
+            .fillMaxWidth()
             .background(PurpleGrey80, shape = RectangleShape)
-            .padding(16.dp),
+            .padding(8.dp),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Center
     ) {
@@ -131,8 +128,9 @@ fun ArtDetails(modifier : Modifier = Modifier, currentIndex: Int, list: List<Art
 
         Text(
             text = buildAnnotatedString {
-                pushStyle(SpanStyle(fontWeight = FontWeight.Bold))
-                append(list[currentIndex].artworkArtist)
+                val style1 = SpanStyle(fontWeight = FontWeight.Bold)
+                pushStyle(style = style1)
+                append(list[currentIndex].artworkArtist )
                 pop()
                 append(" (" + list[currentIndex].artworkYear + ")")
             },
@@ -145,8 +143,9 @@ fun ArtDetails(modifier : Modifier = Modifier, currentIndex: Int, list: List<Art
 @Composable
 fun DisplayController(
     modifier: Modifier = Modifier
-        .padding(vertical = 16.dp)
-        .padding(horizontal = 8.dp),
+        .fillMaxWidth()
+       /* .padding(vertical = 16.dp)
+        .padding(horizontal = 8.dp)*/,
     previous: String,
     next: String,
     currentIndex: Int,
@@ -154,8 +153,12 @@ fun DisplayController(
     onPreviousButtonClicked: () -> Unit
 ) {
 
-    Row(modifier = modifier) {
-        Button(modifier = Modifier.width(150.dp),
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        modifier = modifier) {
+        Button(
+            modifier = Modifier.defaultMinSize(120.dp, 30.dp),
+            //modifier = Modifier.width(150.dp),
             onClick = onPreviousButtonClicked
             ) {
             Text(
@@ -163,11 +166,10 @@ fun DisplayController(
                 fontSize = 18.sp
             )
         }
+        //Spacer(modifier = Modifier.weight(1f))
 
-        Spacer(modifier = Modifier.weight(1f))
-
-
-        Button(modifier = Modifier.width(150.dp),
+        Button(
+            modifier = Modifier.defaultMinSize(120.dp, 30.dp),
             // colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
             onClick = onNextButtonClicked) {
             Text(
