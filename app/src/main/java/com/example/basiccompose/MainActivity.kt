@@ -20,6 +20,7 @@ import com.example.basiccompose.screens.ComposeQuadrant
 import com.example.basiccompose.screens.DiceRollerApp
 //import com.example.basiccompose.screens.DiceRollerApp
 import com.example.basiccompose.screens.LemonButtonAndText
+import com.example.basiccompose.screens.MyApp
 import com.example.basiccompose.screens.TaskManager
 import com.example.basiccompose.screens.TipTimeLayout
 import com.example.basiccompose.ui.theme.BasicComposeTheme
@@ -43,7 +44,9 @@ class MainActivity : ComponentActivity() {
                     //TaskManager()
                     //LemonButtonAndText()
                     //TipTimeLayout()
-                    ArtWall()
+                    //ArtWall()
+                    MyApp()
+                    //onBoardingScreen(onContinueClicked = {})
                 }
             }
         }
