@@ -1,4 +1,4 @@
-package com.example.basiccompose.ui.theme
+ package com.example.basiccompose.ui.theme
 
 import android.app.Activity
 import android.os.Build

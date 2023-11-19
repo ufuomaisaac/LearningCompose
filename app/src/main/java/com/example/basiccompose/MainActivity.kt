@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
                     //LemonButtonAndText()
                     //TipTimeLayout()
                     //ArtWall()
-                    MyApp()
+                    MyApp(modifier = Modifier)
                     //onBoardingScreen(onContinueClicked = {})
                 }
             }
