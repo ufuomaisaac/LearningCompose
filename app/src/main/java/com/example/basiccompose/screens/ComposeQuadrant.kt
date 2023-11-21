@@ -22,14 +22,14 @@ import com.example.basiccompose.R
 fun ComposeQuadrant(modifier: Modifier = Modifier){
     Column(modifier = modifier.fillMaxWidth() ) {
         Row(modifier = modifier.weight(1f)) {
-            Card(
+            Card1(
                 title = stringResource(id = R.string.compose_quadrant_title1),
                 content = stringResource(id = R.string.compose_quadrant_content1),
                 backgroundColor = Color(0xFFEADDFF),
                 modifier = modifier.weight(1f),
             )
 
-            Card(
+            Card1(
                 title = stringResource(id = R.string.compose_quadrant_title2),
                 content = stringResource(id = R.string.compose_quadrant_content2),
                 backgroundColor = Color(0xFFD0BCFF),
@@ -37,14 +37,14 @@ fun ComposeQuadrant(modifier: Modifier = Modifier){
             )
         }
         Row(modifier = modifier.weight(1f)) {
-            Card(
+            Card1(
                 title = stringResource(id = R.string.compose_quadrant_title3) ,
                 content = stringResource(id = R.string.compose_quadrant_content3),
                 modifier = modifier.weight(1f),
                 backgroundColor = Color(0xFFB69DF8)
             )
 
-            Card(
+            Card1(
                 title = stringResource(id = R.string.compose_quadrant_title4) ,
                 content = stringResource(id = R.string.compose_quadrant_content4),
                 modifier = modifier.weight(1f),
@@ -56,7 +56,7 @@ fun ComposeQuadrant(modifier: Modifier = Modifier){
 }
 
 @Composable
-fun Card(modifier: Modifier,
+fun Card1(modifier: Modifier,
          title: String,
          content: String,
          backgroundColor: Color){
