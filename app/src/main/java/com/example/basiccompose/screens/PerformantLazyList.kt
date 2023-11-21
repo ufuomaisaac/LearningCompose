@@ -6,6 +6,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -44,6 +45,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -68,9 +70,7 @@ fun MyApp(modifier: Modifier) {
         } else {
             Greetings()
         }
-
     }
-
 }
 
 @Composable
@@ -81,16 +81,9 @@ private fun Greetings(modifier: Modifier = Modifier,
     
     LazyColumn(modifier = modifier) {
         items(items = names) { name ->
-            //Greeting(modifier = Modifier.padding(vertical = 4.dp), name = name)
             CardContent(name = name)
         }
     }
-
-    /*Column(modifier = modifier) {
-        for (name in names) {
-            Greeting(modifier = modifier.fillMaxWidth(),name = name)
-        }
-    }*/
 }
 
 @Composable
@@ -98,9 +91,16 @@ fun CardContent(modifier: Modifier = Modifier, name: String ) {
 
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primary
+            containerColor = MaterialTheme.colorScheme.error,
+            disabledContainerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.background,
+            disabledContentColor = MaterialTheme.colorScheme.tertiary
         ),
-        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
+        elevation = CardDefaults.cardElevation(
+        ),
+        border = BorderStroke(1.dp, color = Color.Black),
+        shape = RoundedCornerShape(20.dp)
     ) {
         Greeting(modifier = Modifier, name = name)
     }
@@ -112,9 +112,6 @@ private fun Greeting(modifier: Modifier = Modifier, name: String) {
     var expanded by rememberSaveable {
         mutableStateOf(false)
     }
-
-    Surface(color = MaterialTheme.colorScheme.primary,
-            modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp)) {
 
         Row(modifier = modifier
             .fillMaxWidth()
@@ -137,7 +134,7 @@ private fun Greeting(modifier: Modifier = Modifier, name: String) {
                 if (expanded) {
                     Text(
                         text = ("Composem ipsum color sit lazy, " +
-                                "padding theme elit, sed do bouncy. ").repeat(16),
+                                "padding theme elit, sed do bouncy. ").repeat(4),
                     )
                 }
             }
@@ -154,7 +151,6 @@ private fun Greeting(modifier: Modifier = Modifier, name: String) {
                 )
             }
         }
-    }
 }
 
 @Composable
@@ -200,7 +196,8 @@ fun DefaultPreview() {
 @Composable
 fun DefaultPreview2() {
     BasicComposeTheme {
-        Greetings()
+        CardContent(name = "Isaac")
+       // Greetings()
     }
 }
 
