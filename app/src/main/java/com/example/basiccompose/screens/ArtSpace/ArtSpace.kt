@@ -53,7 +53,6 @@ import androidx.compose.ui.unit.sp
 import com.example.basiccompose.R
 import com.example.basiccompose.screens.ArtSpace.List.Companion.list
 import com.example.basiccompose.ui.theme.BasicComposeTheme
-import com.example.basiccompose.ui.theme.Grey
 import com.example.basiccompose.ui.theme.PurpleGrey80
 import kotlinx.coroutines.processNextEventInCurrentThread
 import kotlin.collections.List

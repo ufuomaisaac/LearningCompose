@@ -24,7 +24,7 @@ import com.example.basiccompose.screens.MyApp
 import com.example.basiccompose.screens.TaskManager
 import com.example.basiccompose.screens.TipTimeLayout
 import com.example.basiccompose.ui.theme.BasicComposeTheme
-import com.example.basiccompose.ui.theme.Grey
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
