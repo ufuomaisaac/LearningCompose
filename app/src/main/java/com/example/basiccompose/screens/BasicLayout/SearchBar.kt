@@ -102,21 +102,27 @@ private data class DrawableStringPair (
 fun SearchBar(
     modifier: Modifier = Modifier
 ){
-    TextField(
-        value = " ",
-        leadingIcon = {
-            Icon(imageVector = Icons.Default.Search , contentDescription = "search" )
-        },
-        onValueChange = {},
-        colors = TextFieldDefaults.textFieldColors(
-        ),
-        placeholder = {
-                      Text(text = "Search")
-        },
-        modifier = modifier
-            .fillMaxWidth()
-            .heightIn(min = 56.dp)
-    )
+    Column(modifier =
+    modifier.padding(horizontal = 16.dp)
+        .padding(top = 16.dp)) {
+        TextField(
+            value = " ",
+            leadingIcon = {
+                Icon(imageVector = Icons.Default.Search , contentDescription = "search" )
+            },
+            onValueChange = {},
+            colors = TextFieldDefaults.textFieldColors(
+            ),
+            placeholder = {
+                Text(text = "Search")
+            },
+            modifier = modifier
+                .fillMaxWidth()
+                .heightIn(min = 56.dp)
+        )
+
+    }
+
 }
 
 
@@ -224,7 +230,47 @@ fun FavoriteCollectionsGrid(
     }
 }
 
+@Composable
+fun HomeSection(
+    @StringRes title: Int,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
+) {
+    Column(modifier) {
+        Text(text = stringResource(id = title),
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .paddingFromBaseline(top = 40.dp, bottom = 16.dp),
+            style = typography.titleMedium)
 
+        content()
+    }
+}
+
+@Composable
+fun HomeScreen(modifier: Modifier = Modifier) {
+
+    Column {
+        SearchBar()
+        HomeSection(title = R.string.align_your_body) {
+            AlignYourBodyRow()
+        }
+
+        HomeSection(title = R.string.favorite_collections) {
+            FavoriteCollectionsGrid()
+        }
+    }
+
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun HomeSectionPreview() {
+    BasicComposeTheme {
+        HomeScreen()
+    }
+}
 @Preview(showBackground = true, backgroundColor = 0xFFF5F0EE)
 @Composable
 fun DefaultPreview11(){

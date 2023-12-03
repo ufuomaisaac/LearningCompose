@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.basiccompose.screens.ArtSpace.ArtWall
+import com.example.basiccompose.screens.BasicLayout.HomeScreen
 //import com.example.basiccompose.screens.ArtSpace.ArtWall
 import com.example.basiccompose.screens.ComposeArticle
 import com.example.basiccompose.screens.ComposeQuadrant
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
                     //LemonButtonAndText()
                     //TipTimeLayout()
                     //ArtWall()
-                    MyApp(modifier = Modifier)
+                    HomeScreen()
                     //onBoardingScreen(onContinueClicked = {})
                 }
             }
