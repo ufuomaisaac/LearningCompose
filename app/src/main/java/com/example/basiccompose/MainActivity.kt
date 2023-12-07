@@ -9,12 +9,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.basiccompose.screens.ArtSpace.ArtWall
 import com.example.basiccompose.screens.BasicLayout.HomeScreen
+import com.example.basiccompose.screens.BasicLayout.MySootheApp
 //import com.example.basiccompose.screens.ArtSpace.ArtWall
 import com.example.basiccompose.screens.ComposeArticle
 import com.example.basiccompose.screens.ComposeQuadrant
@@ -28,9 +32,11 @@ import com.example.basiccompose.ui.theme.BasicComposeTheme
 
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val windowSizeClass = calculateWindowSizeClass(activity = this)
             BasicComposeTheme() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -46,7 +52,8 @@ class MainActivity : ComponentActivity() {
                     //LemonButtonAndText()
                     //TipTimeLayout()
                     //ArtWall()
-                    HomeScreen()
+                    //HomeScreen()
+                    MySootheApp(windowSize = windowSizeClass)
                     //onBoardingScreen(onContinueClicked = {})
                 }
             }
