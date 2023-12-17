@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
             BasicComposeTheme() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.onBackground
+                    color = MaterialTheme.colorScheme.onSecondary
                 ) {
                     // A surface container using the 'background' color from the theme
 
@@ -51,9 +51,9 @@ class MainActivity : ComponentActivity() {
                     //TaskManager()
                     //LemonButtonAndText()
                     //TipTimeLayout()
-                    //ArtWall()
+                    ArtWall()
                     //HomeScreen()
-                    MySootheApp(windowSize = windowSizeClass)
+                    //MySootheApp(windowSize = windowSizeClass)
                     //onBoardingScreen(onContinueClicked = {})
                 }
             }
