@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -91,8 +92,7 @@ fun IndianFlagScreen() {
             height = Dimension.value(260.dp)
         }
         constrain(circle) {
-            top.linkTo(parent.top)
-            bottom.linkTo(parent.bottom)
+            top.linkTo(orangeBox.bottom)
             start.linkTo(parent.start)
             end.linkTo(parent.end)
             width = Dimension.value(100.dp)
@@ -100,15 +100,18 @@ fun IndianFlagScreen() {
         }
         constrain(greenBox) {
             top.linkTo(circle.bottom)
-            bottom.linkTo(parent.bottom)
             start.linkTo(parent.start)
             end.linkTo(parent.end)
             width = Dimension.fillToConstraints
             height = Dimension.value(260.dp)
         }
         constrain(whiteBox) {
-
-
+            top.linkTo(greenBox.bottom)
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            bottom.linkTo(parent.bottom)
+            width = Dimension.fillToConstraints
+            height = Dimension.value(400.dp)
         }
         createVerticalChain(orangeBox, circle, greenBox, chainStyle = ChainStyle.SpreadInside)
     }
@@ -134,12 +137,54 @@ fun IndianFlagScreen() {
     }
 }
 
+@Composable
+fun NigeriaFlag(modifier: Modifier) {
+    ConstraintLayout(modifier = modifier.fillMaxSize()) {
+        val (greenbox1, whitebox, greenbox2) = createRefs()
+
+        Box(modifier = Modifier
+            .background(Color.Green)
+            .constrainAs(greenbox1) {
+                top.linkTo(parent.top)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                width = Dimension.fillToConstraints
+                height = Dimension.fillToConstraints
+            }
+        )
+
+        Box(modifier = Modifier
+            .background(Color.White)
+            .constrainAs(whitebox) {
+                top.linkTo(greenbox1.bottom)
+                bottom.linkTo(greenbox2.top)
+                start.linkTo(parent.start)
+                end.linkTo((parent.end))
+                width = Dimension.fillToConstraints
+                height = Dimension.fillToConstraints
+            })
+
+        Box(modifier = modifier
+            .background(Color.Green)
+            .constrainAs(greenbox2) {
+                top.linkTo(whitebox.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                bottom.linkTo(parent.bottom)
+                width = Dimension.fillToConstraints
+                height = Dimension.fillToConstraints
+            })
+
+        createVerticalChain(greenbox1, whitebox, greenbox2, chainStyle = ChainStyle.SpreadInside)
+    }
+}
+
 
 @Preview
 @Composable
 fun ConstraintLayoutpreview() {
     BasicComposeTheme {
-        IndianFlagScreen()
+        NigeriaFlag(modifier = Modifier)
     }
 }
 

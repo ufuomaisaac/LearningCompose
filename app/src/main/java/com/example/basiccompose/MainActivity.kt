@@ -23,6 +23,7 @@ import com.example.basiccompose.screens.BasicLayout.MySootheApp
 import com.example.basiccompose.screens.ComposeArticle
 import com.example.basiccompose.screens.ComposeQuadrant
 import com.example.basiccompose.screens.DiceRollerApp
+import com.example.basiccompose.screens.IndianFlagScreen
 //import com.example.basiccompose.screens.DiceRollerApp
 import com.example.basiccompose.screens.LemonButtonAndText
 import com.example.basiccompose.screens.MyApp
@@ -51,7 +52,8 @@ class MainActivity : ComponentActivity() {
                     //TaskManager()
                     //LemonButtonAndText()
                     //TipTimeLayout()
-                    ArtWall()
+                    //ArtWall()
+                    IndianFlagScreen()
                     //HomeScreen()
                     //MySootheApp(windowSize = windowSizeClass)
                     //onBoardingScreen(onContinueClicked = {})
