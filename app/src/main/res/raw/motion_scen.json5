@@ -1,0 +1,26 @@
+{
+  ConstraintSets: {
+    start: {
+      profile_pic: {
+        width: 40,
+        height: 40,
+        start: ['parent', 'start', 16],
+        top: ['parent', 'top', 16],
+      },
+      username: {
+        start: ['profile_pic', 'end', 16],
+        top: ['profile_pic', 'top'],
+        bottom: ['profile_pic', 'bottom' ],
+      },
+
+      box: {
+        width: 'spread',
+        height: 'spread',
+        start: ['parent', 'start' ],
+        end: ['parent', 'end', 0],
+        top: ['parent', '', 0],
+      }
+
+    }
+  }
+}

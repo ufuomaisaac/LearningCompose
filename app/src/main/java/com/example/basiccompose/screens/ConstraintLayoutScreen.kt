@@ -174,7 +174,6 @@ fun NigeriaFlag(modifier: Modifier) {
                 width = Dimension.fillToConstraints
                 height = Dimension.fillToConstraints
             })
-
         createVerticalChain(greenbox1, whitebox, greenbox2, chainStyle = ChainStyle.SpreadInside)
     }
 }
