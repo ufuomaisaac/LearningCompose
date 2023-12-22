@@ -45,7 +45,7 @@
         start: ['parent', 'start' ],
         end: ['parent', 'end', ],
         top: ['parent', 'top', 0],
-        bottom: ['parent', 'bottom', -16],
+        bottom: ['parent', 'bottom',-48],
       }
     }
   },
