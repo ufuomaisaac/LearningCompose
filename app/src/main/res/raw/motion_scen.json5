@@ -18,9 +18,51 @@
         height: 'spread',
         start: ['parent', 'start' ],
         end: ['parent', 'end', 0],
-        top: ['parent', '', 0],
+        top: ['parent', 'top', 0],
+        bottom: ['parent', 'bottom', -16],
       }
+    },
 
+    end: {
+      profile_pic: {
+        width: 150,
+        height: 150,
+        start: ['parent', 'start', 16],
+        top: ['parent', 'top', 16],
+        bottom: ['parent', 'bottom', 16],
+        end: ['parent', 'end', 16],
+      },
+      username: {
+        start: ['profile_pic', 'start', ],
+        end: ['profile_pic', 'end', 0],
+        top: ['profile_pic', 'bottom', 16],
+
+      },
+
+      box: {
+        width: 'spread',
+        height: 'spread',
+        start: ['parent', 'start' ],
+        end: ['parent', 'end', ],
+        top: ['parent', 'top', 0],
+        bottom: ['parent', 'bottom', -16],
+      }
+    }
+  },
+  Transition: {
+    default: {
+      from: 'start',
+      to: 'end',
+      pathMotionArc: 'startHorizontal',
+      keyFrames: {
+        keyAttributes: [
+          {
+            target: ['profile_pic'],
+            frames: [1,100],
+            translationX: [50, 0]
+          }
+        ]
+      }
     }
   }
 }
