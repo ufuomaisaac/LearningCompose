@@ -1,4 +1,4 @@
-package com.example.basiccompose.screens
+package com.example.basiccompose.screens.motion_layout.profile_header
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,7 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.layout
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -59,6 +58,7 @@ fun ProfileHeader(progress : Float, modifier: Modifier) {
 
         Text(text = "Ufuoma Isaac",
             fontSize = 24.sp,
+            color = Color.White,
             modifier = Modifier.layoutId("username"))
 
     }

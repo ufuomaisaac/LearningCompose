@@ -49,7 +49,7 @@
       }
     }
   },
-  Transition: {
+ Transition: {
     default: {
       from: 'start',
       to: 'end',
@@ -58,8 +58,13 @@
         keyAttributes: [
           {
             target: ['profile_pic'],
-            frames: [1,100],
-            translationX: [50, 0]
+            frames: [0, 100],
+          },
+          {
+            target: ['username'],
+            framePosition: [0, 50, 100],
+            translationX: [0, 100, 0],
+            rotationZ: [0, 180, 0]
           }
         ]
       }
