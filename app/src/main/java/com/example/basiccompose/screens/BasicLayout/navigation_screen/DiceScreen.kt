@@ -1,5 +1,5 @@
 
-package com.example.basiccompose.screens
+package com.example.basiccompose.screens.BasicLayout.navigation_screen
 
 import android.util.Log
 import androidx.compose.foundation.Image
@@ -14,13 +14,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.basiccompose.R
 import com.example.basiccompose.ui.theme.BasicComposeTheme
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
-import kotlin.random.Random
 
 @Composable
 fun DiceRollerApp(){
@@ -31,7 +28,6 @@ fun DiceRollerApp(){
     ) {
         DiceWithImageandButton(modifier = Modifier)
     }
-
 }
 
 @Composable

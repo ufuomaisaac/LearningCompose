@@ -1,7 +1,4 @@
-package com.example.basiccompose.screens.BasicLayout
-
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
+package com.example.basiccompose.screens.BasicLayout.navigation_screen
 
 /*
 data class AlignYourBodyData(
