@@ -22,7 +22,7 @@ fun ProfileHeaderSlot() {
         mutableStateOf(0f)
     }
 
-    val constraintSet = ConstraintSet() {
+    val constraintSet = ConstraintSet {
         val profileHeader = createRefFor("profile_header")
         val slider = createRefFor("slider")
 

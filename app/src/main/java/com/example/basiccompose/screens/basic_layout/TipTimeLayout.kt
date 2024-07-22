@@ -1,4 +1,4 @@
-package com.example.basiccompose.screens.BasicLayout
+package com.example.basiccompose.screens.basic_layout
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

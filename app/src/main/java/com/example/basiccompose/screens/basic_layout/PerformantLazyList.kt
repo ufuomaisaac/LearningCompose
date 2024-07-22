@@ -1,4 +1,4 @@
-package com.example.basiccompose.screens.BasicLayout
+package com.example.basiccompose.screens.basic_layout
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.animateContentSize

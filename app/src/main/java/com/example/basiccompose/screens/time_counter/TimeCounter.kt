@@ -1,4 +1,4 @@
-package com.example.basiccompose
+package com.example.basiccompose.screens.time_counter
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

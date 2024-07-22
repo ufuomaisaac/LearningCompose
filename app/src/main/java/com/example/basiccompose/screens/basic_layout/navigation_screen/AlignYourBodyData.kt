@@ -1,4 +1,4 @@
-package com.example.basiccompose.screens.BasicLayout.navigation_screen
+package com.example.basiccompose.screens.basic_layout.navigation_screen
 
 /*
 data class AlignYourBodyData(

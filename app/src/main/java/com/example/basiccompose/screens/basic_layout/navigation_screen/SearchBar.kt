@@ -1,4 +1,4 @@
-package com.example.basiccompose.screens.BasicLayout.navigation_screen
+package com.example.basiccompose.screens.basic_layout.navigation_screen
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -43,12 +43,14 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+//import androidx.compose.material3.tokens.FilledTextFieldTokens
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -117,13 +119,18 @@ fun SearchBar(
 ){
     Column(modifier =
     modifier.padding(horizontal = 16.dp)) {
+     //   val containerColor = FilledTextFieldTokens.ContainerColor.toColor()
+        val containerColor = Color.Red
         TextField(
             value = " ",
             leadingIcon = {
                 Icon(imageVector = Icons.Default.Search , contentDescription = "search" )
             },
             onValueChange = {},
-            colors = TextFieldDefaults.textFieldColors(
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = containerColor,
+                unfocusedContainerColor = containerColor,
+                disabledContainerColor = containerColor,
             ),
             placeholder = {
                 Text(text = "Search")

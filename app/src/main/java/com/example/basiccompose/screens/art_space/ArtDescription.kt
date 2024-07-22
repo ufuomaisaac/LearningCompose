@@ -1,7 +1,6 @@
-package com.example.basiccompose.screens.ArtSpace
+package com.example.basiccompose.screens.art_space
 
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import com.example.basiccompose.R
 
 data class ArtDescription(

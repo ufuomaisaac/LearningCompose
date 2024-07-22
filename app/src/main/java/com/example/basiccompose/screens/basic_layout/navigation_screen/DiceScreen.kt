@@ -1,5 +1,5 @@
 
-package com.example.basiccompose.screens.BasicLayout.navigation_screen
+package com.example.basiccompose.screens.basic_layout.navigation_screen
 
 import android.util.Log
 import androidx.compose.foundation.Image

@@ -98,7 +98,7 @@ fun ToolBarExample() {
         }
     }
 
-    val progress = java.lang.Float.min(scroll.value / (3f * (250 - 50)), 1f);
+    val progress = java.lang.Float.min(scroll.value / (3f * (250 - 50)), 1f)
 
     MotionLayout(
         modifier = Modifier.fillMaxSize(),

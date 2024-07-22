@@ -1,4 +1,4 @@
-package com.example.basiccompose.screens.BasicLayout
+package com.example.basiccompose.screens.basic_layout
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
