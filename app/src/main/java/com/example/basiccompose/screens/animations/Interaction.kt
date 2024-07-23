@@ -1,5 +1,6 @@
 package com.example.basiccompose.screens.animations
 
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateIntOffsetAsState
 import androidx.compose.foundation.background
@@ -7,6 +8,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -86,10 +89,40 @@ fun Displacement() {
 }
 
 
+
+@Composable
+fun PaddingAnItem() {
+    var toggle by remember {
+        mutableStateOf(false)
+    }
+
+    val animatePadding by animateDpAsState(
+        targetValue = if (toggle) {
+            0.dp
+        } else
+            20.dp,
+        label = "padding"
+    )
+
+    Box(
+        modifier = Modifier
+            .aspectRatio(1f)
+            .fillMaxSize()
+            .padding(animatePadding)
+            .background(Color.Red)
+            .clickable (
+                interactionSource = remember { MutableInteractionSource()},
+                indication = null,
+                onClick = {toggle = !toggle}
+            )
+    )
+}
+
+
 @Preview
 @Composable
 fun preview() {
-    Displacement()
+    PaddingAnItem()
 }
 
 
