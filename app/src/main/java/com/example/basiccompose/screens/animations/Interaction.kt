@@ -1,5 +1,6 @@
 package com.example.basiccompose.screens.animations
 
+import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateDpAsState
@@ -22,6 +23,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -162,11 +164,34 @@ fun TextInfiniteAnimation() {
     }
 }
 
+@Composable
+fun TextColorInfiniteAnimation() {
+
+    var infiniteTransition  = rememberInfiniteTransition(label = "Infinite Transitions")
+    val animateColor by infiniteTransition.animateColor(
+        initialValue = Color.Green,
+        targetValue = Color.Blue,
+        animationSpec = infiniteRepeatable(tween(durationMillis = 2000, easing = Easing { 3f * it }, delayMillis = 1000, )),
+        label = "scale"
+    )
+
+
+    Box(modifier = Modifier
+        .background(color = Color.Black)
+        .fillMaxSize()) {
+        BasicText(
+            modifier = Modifier,
+            text = "Hello Compose",
+            color = { animateColor }
+        )
+    }
+}
+
 
 @Preview
 @Composable
 fun preview() {
-    TextInfiniteAnimation()
+    TextColorInfiniteAnimation()
 }
 
 
